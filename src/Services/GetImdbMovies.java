@@ -24,7 +24,10 @@ public class GetImdbMovies {
         
         String apiKey = dotenv.get("IMDB_API_KEY");
 
-        String url = String.format("https://imdb-api.com/en/API/Top250Movies/%s", apiKey);
+        String url = "https://imdb-api.com/en/API/Top250Movies/" + apiKey;
+        System.out.println(url);
+
+        //String url = "https://api.mocki.io/v2/549a5d8b/Top250Movies";
 
         HttpClient client = HttpClient.newHttpClient();
 

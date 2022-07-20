@@ -1,23 +1,40 @@
 package Entities;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Movie {
+    
+    @JsonProperty("title")
     private String title;
     public String getTitle() {
         return title;
-    }
+    }    
 
+    @JsonProperty("image")
     private String image;
     public String getImage() {
         return image;
     }
+
+    @JsonProperty("imDbRating")
     private String imDbRating;
     public String imDbRating(){
         return imDbRating;
     }
 
-    public Movie(String title, String image, String imDbRating) {
+    @JsonCreator
+    public Movie(@JsonProperty("title") String title, 
+    @JsonProperty("image") String image, 
+    @JsonProperty("imDbRating") String imDbRating) {
         this.title = title;
         this.image = image;
         this.imDbRating = imDbRating;
-    }    
+    }
+
+    
+
+    
 }
