@@ -20,8 +20,8 @@ public class Movie {
     }
 
     @JsonProperty("imDbRating")
-    private String imDbRating;
-    public String imDbRating(){
+    private float imDbRating;
+    public float imDbRating(){
         return imDbRating;
     }
 
@@ -31,10 +31,6 @@ public class Movie {
     @JsonProperty("imDbRating") String imDbRating) {
         this.title = title;
         this.image = image;
-        this.imDbRating = imDbRating;
+        this.imDbRating = Float.parseFloat(imDbRating);
     }
-
-    
-
-    
 }
