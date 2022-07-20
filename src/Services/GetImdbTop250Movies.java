@@ -11,7 +11,7 @@ import java.util.List;
 import Entities.Movie;
 import io.github.cdimascio.dotenv.Dotenv;
 
-public class GetImdbMovies {
+public class GetImdbTop250Movies {
     
     /**
      * Requisita a api do imdb e obtém os top 250 filmes
@@ -19,15 +19,15 @@ public class GetImdbMovies {
      * @throws InterruptedException
      * @throws IOException
      */    
-    public String getMovies() throws IOException, InterruptedException {
+    public String get() throws IOException, InterruptedException {
         Dotenv dotenv = Dotenv.load();
         
         String apiKey = dotenv.get("IMDB_API_KEY");
 
-        String url = "https://imdb-api.com/en/API/Top250Movies/" + apiKey;
-        System.out.println(url);
+        //String url = "https://imdb-api.com/en/API/Top250Movies/" + apiKey;
+        //System.out.println(url);
 
-        //String url = "https://api.mocki.io/v2/549a5d8b/Top250Movies";
+        String url = "https://api.mocki.io/v2/549a5d8b/Top250Movies";
 
         HttpClient client = HttpClient.newHttpClient();
 
