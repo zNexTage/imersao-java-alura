@@ -32,7 +32,9 @@ public class StickerFactory {
         graphics.drawString("TOPZERA", 20, newHeight - 100);
 
         // 5 -Escrever a nova imagem em um novo arquivo
-        File file = new File(String.format("assets/out/%s.png", outFileName));
+        String validOutFileName =outFileName.replaceAll("[^a-zA-Z0-9]"," ");
+
+        File file = new File(String.format("assets/out/%s.png", validOutFileName));
 
         ImageIO.write(newImage, "png", file);
     }
