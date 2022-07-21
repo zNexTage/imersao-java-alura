@@ -24,5 +24,7 @@ replay_pid*
 
 .env
 
+application.properties
+
 # output images
 alura-stickers/assets/out
