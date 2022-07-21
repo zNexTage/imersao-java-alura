@@ -9,7 +9,7 @@ import java.io.InputStream;
 import javax.imageio.ImageIO;
 
 public class StickerFactory {
-    void create(InputStream inputStream, String outFileName) throws IOException{
+    File create(InputStream inputStream, String outFileName) throws IOException{
         // 1 - Leitura do arquivo
         BufferedImage originalImage = ImageIO.read(inputStream);
 
@@ -32,10 +32,12 @@ public class StickerFactory {
         graphics.drawString("TOPZERA", 20, newHeight - 100);
 
         // 5 -Escrever a nova imagem em um novo arquivo
-        String validOutFileName =outFileName.replaceAll("[^a-zA-Z0-9]"," ");
+        String validOutFileName =outFileName.replaceAll("[^a-zA-Z0-9]"," ").replaceAll(" ", "_");
 
         File file = new File(String.format("assets/out/%s.png", validOutFileName));
 
         ImageIO.write(newImage, "png", file);
+
+        return file;
     }
 }
